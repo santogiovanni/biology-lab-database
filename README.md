@@ -10,7 +10,7 @@
 ### Entities and Relationships
 #### The Biology Lab Database will include several key entities, each of which will be related to one another in various ways. These entities include: 
 
-#### Principal Investigator: This attribute would include information about the researcher (PI) who leads the research. The attributes will be the PI’s ID and name.
+#### **Principal Investigator:** This attribute would include information about the researcher (PI) who leads the research. The attributes will be the PI’s ID and name.
 
 #### Research Assistant: This entity will contain information about the specific personnel that the research lab grants access to. The information would include a research assistant ID, the ID of their principal investigator, and name. The research assistant ID unique identifies these participants of the research lab.
 
