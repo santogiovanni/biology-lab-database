@@ -40,3 +40,7 @@ This entity will contain all relevant information on previous lab publications. 
 
 ### Grants/Funding: ###
 This entity will contain information about any grants or funding via external or internal support that the research lab receives. The attributes will include a grant ID, agency name, grant title, grant type (research, training, or equipment grant), grant amount (in dollars), start and end dates of the award period, funding status (active, pending, or completed), experiment ID, and PI ID. The grant ID uniquely identifies a new grant awarded to an experiment.
+
+### Entity-Relationship Diagram: ###
+![Screen Shot 2023-05-19 at 3 53 19 PM](https://github.com/santogiovanni/biology-lab-database/assets/106194360/dfe1418f-6f20-4953-93bb-1ac277a722ea)
+
