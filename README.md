@@ -44,3 +44,33 @@ This entity will contain information about any grants or funding via external or
 ### Entity-Relationship Diagram: ###
 ![Screen Shot 2023-05-19 at 3 53 19 PM](https://github.com/santogiovanni/biology-lab-database/assets/106194360/dfe1418f-6f20-4953-93bb-1ac277a722ea)
 
+### Relational Schema: ###
+*pi (***pi_id***, first_name, last_name)*
+
+research_assistant (ra_id, pi_id, first_name, last_name)
+
+lab_staff (lab_staff_id, ra_id, pi_id, email_address, title, affiliation)
+
+phone_numbers (phone_number_id, lab_staff_id, type, phone_number)
+
+home_addresses (id, street, city, state, country, postal_code)
+
+experiments (id, pi_id, name, start_date, end_date, lab_room_number, building_id)
+
+inventory (id, item_name, vendor_name, storage_location, lab_room_number, quantity, purchase_date)
+
+lab (room_number, building_id)
+
+lab_building (id, building, street, city, state, country, postal_code)
+
+samples (name, lab_room_number, quantity, vendor_name, collection_date, storage_location)
+
+data_analysis (pipeline_name, pipeline_type, vendor_name, storage_location, lab_room_number)
+
+safety_protocols (name, experiment_id, description)
+
+publications (id, publication_title, journal_title, pi_id, date)
+
+grants (id, agency_name, grant_title, grant_type, grant_amount, start_date, end_date, status, experiment_id, pi_id)
+
+
