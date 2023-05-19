@@ -1,0 +1,247 @@
+// Stephen Antogiovanni
+// Professor Johnson
+// Database Project ER Diagram
+
+// header
+erdiagram BiologyLab
+
+// notation
+notation=default
+
+// model elements
+entity PI {
+    pi_id: INT key
+    first_name: VARCHAR(100)
+    last_name: VARCHAR(100)
+}
+
+entity ResearchAssistant {
+    ra_id: INT key
+    pi_id: INT
+    first_name: VARCHAR(100)
+    last_name: VARCHAR(100)
+}
+
+entity LabStaff {
+    lab_staff_id: INT key
+    ra_id: INT
+    pi_id: INT
+    email_address: VARCHAR(100)
+    phone_number: CHAR(10)
+    home_address: VARCHAR(100)
+    title: VARCHAR(50)
+    affiliation: VARCHAR(100)
+}
+
+entity Experiments {
+    id: INT key
+    pi_id: INT
+    name: VARCHAR(255)
+    start_date: DATE
+    end_date: DATE
+    lab_room_number: INT
+    lab_building: VARCHAR(50)
+    lab_city: VARCHAR(50)
+    lab_state: VARCHAR(50)
+}
+
+weak entity Inventory {
+    id: INT partial-key
+    item_name: VARCHAR(255)
+    vendor_name: VARCHAR(100)
+    storage_location: VARCHAR(50)
+    lab_room_number: INT
+    quantity: INT
+    purchase_date: VARCHAR(50)
+}
+
+entity Lab {
+    room_number: INT key
+    building: VARCHAR(50)
+    city: VARCHAR(50)
+    state: VARCHAR(50)
+}
+
+
+weak entity Samples {
+    
+    name: VARCHAR(255) partial-key
+    lab_room_number: INT partial-key
+    quantity: INT partial-key
+    vendor_name: VARCHAR(100)
+    collection_date: DATE partial-key
+    storage_location: VARCHAR(50)
+}
+
+
+weak entity DataAnalysis {
+    
+    pipeline_name: VARCHAR(255) partial-key
+    pipeline_type: VARCHAR(100)
+    vendor_name: VARCHAR(100)
+    storage_location: VARCHAR(50)
+    lab_room_number: INT partial-key
+}
+
+entity SafetyProtocols {
+    
+    name: VARCHAR(100) key
+    experiment_id: INT key
+    description: VARCHAR(100)
+}
+
+entity Publications {
+    id: INT key
+    publication_title: VARCHAR(255)
+    journal_title: VARCHAR(255)
+    pi_id: INT
+    date: DATE
+}
+
+entity Grants {
+    id: INT key
+    agency_name: VARCHAR(255)
+    grant_title: VARCHAR(100)
+    grant_type: VARCHAR(50)
+    grant_amount: NUMERIC(10,2)
+    start_date: DATE
+    end_date: DATE
+    status: VARCHAR(50)
+    experiment_id: INT
+    pi_id: INT
+}
+
+
+// relationships
+relationship advisor {
+    PI[1] -> ResearchAssistant[N]
+}  
+
+relationship pi_is_a {
+    PI[1] -> LabStaff[1]
+}
+
+relationship leads {
+    PI[1] -> Experiments[N]
+}
+
+relationship receives {
+    PI[1] -> Grants[N]
+}
+
+relationship publishes {
+    PI[1] -> Publications[N]
+}
+
+relationship ra_is_a {
+    ResearchAssistant[1] -> LabStaff[1]
+}
+
+relationship conducts {
+    ResearchAssistant[N] -> Experiments[N]
+}
+
+weak relationship utilizes {
+    ResearchAssistant[N] -> DataAnalysis[N]
+}
+
+weak relationship borrows {
+    ResearchAssistant[N] -> Inventory[N]
+}
+
+weak relationship uses {
+    ResearchAssistant[N] -> Samples[N]
+}
+
+relationship uphold {
+    Experiments[N] -> SafetyProtocols[N]
+}
+
+relationship funds {
+    Grants[1] -> Experiments[1]
+}
+
+relationship contributes {
+    ResearchAssistant[N] -> Publications[N]
+}
+
+relationship held_in {
+    Experiments[1] -> Lab[1]
+}
+
+relationship stored_in {
+    Inventory[N] -> Lab[N]
+}
+
+relationship utilized_in {
+    Inventory[N] -> Experiments[N]
+}
+
+relationship located_in {
+    Samples[N] -> Lab[N]
+}
+
+relationship used_in {
+    Samples[N] -> Experiments[N]
+}
+
+
+// Relationships
+// relationship Exam {
+//     Student[1]  -> Course[N] -> Instructor[N]
+//     points: DOUBLE
+// }
+// weak relationship has {
+//     Room[N] -> Building[1]
+// }
+// relationship Office {   
+//     Room[1] -> Instructor[1]
+// }
+// relationship Work {
+//     Instructor[N] -> Department[1]
+// }
+// weak relationship include {
+//     Course[1] -> Lecture[N]
+// }
+// relationship Location {
+//     Building[N] -> Department[1]
+// }
+
+// // ER Model
+// erdiagram University
+
+// // Options
+// notation=default
+
+// // Entities
+// entity Student {
+//     id: INT key
+//     name: VARCHAR(255)
+//     birthday: DATE
+//     age: SMALLINT 
+// }
+// entity Course {
+//     course_nr: INT key
+//     course_name: VARCHAR(100)
+//     credits: SMALLINT
+// }
+// weak entity Lecture {
+//     title: VARCHAR(255) partial-key
+// }
+// entity Instructor {
+//     instructor_id: INT key
+//     name: VARCHAR(255)
+// }
+// entity Department {
+//     dept_nr: INT key
+//     name: VARCHAR(100)
+//     abbreviation: CHAR(5) 
+// }
+// weak entity Room {
+//     room_nr: INT partial-key
+// }
+// entity Building {
+//     building_id: CHAR(8) key
+//     address: VARCHAR(255)
+// }
+
