@@ -47,30 +47,30 @@ This entity will contain information about any grants or funding via external or
 ### Relational Schema: ###
 - *pi (<ins>***pi_id***</ins>, first_name, last_name)*
 
-- *research_assistant (***ra_id***, pi_id, first_name, last_name)*
+- *research_assistant (<ins>***ra_id***</ins>, pi_id, first_name, last_name)*
 
-- *lab_staff (***lab_staff_id***, ra_id, pi_id, email_address, title, affiliation)*
+- *lab_staff (<ins>***lab_staff_id***</ins>, ra_id, pi_id, email_address, title, affiliation)*
 
-- *phone_numbers (***phone_number_id***, lab_staff_id, type, phone_number)*
+- *phone_numbers (<ins>***phone_number_id***</ins>, lab_staff_id, type, phone_number)*
 
-- *home_addresses (***id***, street, city, state, country, postal_code)*
+- *home_addresses (<ins>***id***</ins>, street, city, state, country, postal_code)*
 
-- *experiments (***id***, pi_id, name, start_date, end_date, lab_room_number, building_id)*
+- *experiments (<ins>***id***</ins>, pi_id, name, start_date, end_date, lab_room_number, building_id)*
 
-- *inventory (***id***, item_name, vendor_name, storage_location, lab_room_number, quantity, purchase_date)*
+- *inventory (<ins>***id***</ins>, item_name, vendor_name, storage_location, lab_room_number, quantity, purchase_date)*
 
-- *lab (***room_number***, ***building_id***)*
+- *lab (<ins>***room_number***</ins>, <ins>***building_id***</ins>)*
 
-- *lab_building (***id***, building, street, city, state, country, postal_code)*
+- *lab_building (<ins>***id***</ins>, building, street, city, state, country, postal_code)*
 
-- *samples (***name***, ***lab_room_number***, ***quantity***, vendor_name, ***collection_date***, storage_location)*
+- *samples (<ins>***name***</ins>, <ins>***lab_room_number***</ins>, <ins>***quantity***</ins>, vendor_name, <ins>***collection_date***</ins>, storage_location)*
 
-- *data_analysis (***pipeline_name***, pipeline_type, vendor_name, storage_location, ***lab_room_number***)*
+- *data_analysis (<ins>***pipeline_name***</ins>, pipeline_type, vendor_name, storage_location, <ins>***lab_room_number***</ins>)*
 
-- *safety_protocols (***name***, ***experiment_id***, description)*
+- *safety_protocols (<ins>***name***</ins>, <ins>***experiment_id***</ins>, description)*
 
-- *publications (***id***, publication_title, journal_title, pi_id, date)*
+- *publications (<ins>***id***</ins>, publication_title, journal_title, pi_id, date)*
 
-- *grants (***id***, agency_name, grant_title, grant_type, grant_amount, start_date, end_date, status, experiment_id, pi_id)*
+- *grants (<ins>***id***</ins>, agency_name, grant_title, grant_type, grant_amount, start_date, end_date, status, experiment_id, pi_id)*
 
 
