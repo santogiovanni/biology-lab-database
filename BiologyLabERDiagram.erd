@@ -10,12 +10,14 @@ notation=default
 
 // model elements
 entity PI {
+    
     pi_id: INT key
     first_name: VARCHAR(100)
     last_name: VARCHAR(100)
 }
 
 entity ResearchAssistant {
+
     ra_id: INT key
     pi_id: INT
     first_name: VARCHAR(100)
@@ -23,6 +25,7 @@ entity ResearchAssistant {
 }
 
 entity LabStaff {
+
     lab_staff_id: INT key
     ra_id: INT
     pi_id: INT
@@ -34,6 +37,7 @@ entity LabStaff {
 }
 
 entity Experiments {
+
     id: INT key
     pi_id: INT
     name: VARCHAR(255)
@@ -46,6 +50,7 @@ entity Experiments {
 }
 
 weak entity Inventory {
+
     id: INT partial-key
     item_name: VARCHAR(255)
     vendor_name: VARCHAR(100)
@@ -56,6 +61,7 @@ weak entity Inventory {
 }
 
 entity Lab {
+
     room_number: INT key
     building: VARCHAR(50)
     city: VARCHAR(50)
@@ -91,6 +97,7 @@ entity SafetyProtocols {
 }
 
 entity Publications {
+
     id: INT key
     publication_title: VARCHAR(255)
     journal_title: VARCHAR(255)
@@ -99,6 +106,7 @@ entity Publications {
 }
 
 entity Grants {
+
     id: INT key
     agency_name: VARCHAR(255)
     grant_title: VARCHAR(100)
@@ -184,64 +192,3 @@ relationship located_in {
 relationship used_in {
     Samples[N] -> Experiments[N]
 }
-
-
-// Relationships
-// relationship Exam {
-//     Student[1]  -> Course[N] -> Instructor[N]
-//     points: DOUBLE
-// }
-// weak relationship has {
-//     Room[N] -> Building[1]
-// }
-// relationship Office {   
-//     Room[1] -> Instructor[1]
-// }
-// relationship Work {
-//     Instructor[N] -> Department[1]
-// }
-// weak relationship include {
-//     Course[1] -> Lecture[N]
-// }
-// relationship Location {
-//     Building[N] -> Department[1]
-// }
-
-// // ER Model
-// erdiagram University
-
-// // Options
-// notation=default
-
-// // Entities
-// entity Student {
-//     id: INT key
-//     name: VARCHAR(255)
-//     birthday: DATE
-//     age: SMALLINT 
-// }
-// entity Course {
-//     course_nr: INT key
-//     course_name: VARCHAR(100)
-//     credits: SMALLINT
-// }
-// weak entity Lecture {
-//     title: VARCHAR(255) partial-key
-// }
-// entity Instructor {
-//     instructor_id: INT key
-//     name: VARCHAR(255)
-// }
-// entity Department {
-//     dept_nr: INT key
-//     name: VARCHAR(100)
-//     abbreviation: CHAR(5) 
-// }
-// weak entity Room {
-//     room_nr: INT partial-key
-// }
-// entity Building {
-//     building_id: CHAR(8) key
-//     address: VARCHAR(255)
-// }
-
